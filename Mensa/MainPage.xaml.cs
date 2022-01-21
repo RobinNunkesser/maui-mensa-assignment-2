@@ -17,12 +17,20 @@ public partial class MainPage : ContentPage
     protected async override void OnAppearing()
     {
         base.OnAppearing();
-        await _service.Execute(new MealQuery() { Mensa = 42, Date = DateTime.Now }, SuccessHandler, ErrorHandler);
+        try
+        {
+            SuccessHandler(await _service.Execute(
+                new MealQuery() { Mensa = 42, Date = DateTime.Now }));
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler(ex);
+        }
     }
 
-    private void ErrorHandler(Exception e)
+    private void ErrorHandler(Exception ex)
     {
-        Debug.WriteLine(e.ToString());
+        Debug.WriteLine(ex.ToString());
     }
 
     private void SuccessHandler(List<IMealCollection> meals)
