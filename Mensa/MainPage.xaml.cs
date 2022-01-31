@@ -8,10 +8,12 @@ namespace Mensa;
 public partial class MainPage : ContentPage
 {
     private IService<IMealQuery, List<IMealCollection>> _service = new MockGetMealsService();
+    private readonly MensaViewModel viewModel = new();
 
     public MainPage()
     {
         InitializeComponent();
+        BindingContext = viewModel;
     }
 
     protected async override void OnAppearing()
@@ -19,23 +21,30 @@ public partial class MainPage : ContentPage
         base.OnAppearing();
         try
         {
-            SuccessHandler(await _service.Execute(
+            SuccessHandlerAsync(await _service.Execute(
                 new MealQuery() { Mensa = 42, Date = DateTime.Now }));
         }
         catch (Exception ex)
         {
-            ErrorHandler(ex);
+            await ErrorHandlerAsync(ex);
         }
     }
 
-    private void ErrorHandler(Exception ex)
+    private async Task ErrorHandlerAsync(Exception ex)
     {
-        Debug.WriteLine(ex.ToString());
+        await DisplayAlert("Error", ex.Message,"Ok");
     }
 
-    private void SuccessHandler(List<IMealCollection> meals)
+    private async Task SuccessHandlerAsync(List<IMealCollection> meals)
     {
-        Debug.WriteLine(meals.ToString());
+        if (meals.Count > 0)
+        {
+            viewModel.SetMeals(meals);
+        }
+        else
+        {
+            await DisplayAlert("Error", "Keine Mahlzeiten gefunden. Mensa geschlossen?", "Ok"); 
+        }
     }
 
 }

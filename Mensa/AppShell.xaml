@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mensa="clr-namespace:Mensa"
+             x:Class="Mensa.AppShell">
+    <Shell.Resources>
+    </Shell.Resources>
+
+    <TabBar>
+        <Tab Title="Tab 1" Icon="one_circle_thin_s">
+            <ShellContent>
+                <mensa:MainPage/>
+            </ShellContent>
+        </Tab>
+        <Tab Title="Tab 2" Icon="two_circle_thin_s">
+            <ShellContent>
+                <mensa:SettingsPage/>
+            </ShellContent>
+        </Tab>
+    </TabBar>
+</Shell>

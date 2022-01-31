@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mensa.SettingsPage"
+             BackgroundColor="{DynamicResource SecondaryColor}"
+    Title="Settings">
+    <ContentPage.Content>
+        <TableView Intent="Settings">
+            <TableRoot>
+                <TableSection Title="Settings">
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal" Padding="20,0,20,0">
+                                <Label Text="Status"
+                                       HorizontalOptions="StartAndExpand"
+                                       VerticalOptions="Center"
+                                       />
+                                <Picker
+                                    x:Name="StatusPicker"
+                                    Title="Status"
+                                    HorizontalOptions="EndAndExpand"
+                                    SelectedIndex="{Binding Status}"
+                                    >
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>Studierende</x:String>
+                                            <x:String>Bedienstete</x:String>
+                                            <x:String>Gäste</x:String>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>
