@@ -21,7 +21,7 @@ public partial class MainPage : ContentPage
         base.OnAppearing();
         try
         {
-            SuccessHandlerAsync(await _service.Execute(
+            await SuccessHandlerAsync(await _service.Execute(
                 new MealQuery() { Mensa = 42, Date = DateTime.Now }));
         }
         catch (Exception ex)
