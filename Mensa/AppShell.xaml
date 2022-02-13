@@ -7,12 +7,12 @@
     </Shell.Resources>
 
     <TabBar>
-        <Tab Title="Tab 1" Icon="one_circle_thin_s">
+        <Tab Title="Mensa" Icon="one_circle_thin_s">
             <ShellContent>
                 <mensa:MainPage/>
             </ShellContent>
         </Tab>
-        <Tab Title="Tab 2" Icon="two_circle_thin_s">
+        <Tab Title="Settings" Icon="two_circle_thin_s">
             <ShellContent>
                 <mensa:SettingsPage/>
             </ShellContent>
