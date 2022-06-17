@@ -32,7 +32,7 @@ public partial class MainPage : ContentPage
 
     private async Task ErrorHandlerAsync(Exception ex)
     {
-        await DisplayAlert("Error", ex.Message,"Ok");
+        await DisplayAlert("Error", ex.Message, "Ok");
     }
 
     private async Task SuccessHandlerAsync(List<IMealCollection> meals)
@@ -43,7 +43,7 @@ public partial class MainPage : ContentPage
         }
         else
         {
-            await DisplayAlert("Error", "Keine Mahlzeiten gefunden. Mensa geschlossen?", "Ok"); 
+            await DisplayAlert("Error", "Keine Mahlzeiten gefunden. Mensa geschlossen?", "Ok");
         }
     }
 
