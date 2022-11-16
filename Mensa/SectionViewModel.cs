@@ -9,8 +9,8 @@ namespace Mensa
     /// </summary>
     public class SectionViewModel<T> : ObservableCollection<T>
     {
-        private string _longName;
-        private string _shortName;
+        private string _longName = string.Empty;
+        private string _shortName = string.Empty;
 
         public string LongName
         {

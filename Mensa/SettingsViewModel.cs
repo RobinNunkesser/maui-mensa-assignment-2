@@ -8,7 +8,7 @@ namespace Mensa
 {
     public class SettingsViewModel : INotifyPropertyChanged
     {
- 
+
         public int Status
         {
             get => Settings.Status;
@@ -21,7 +21,7 @@ namespace Mensa
         }
 
         #region INotifyPropertyChanged implementation
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string name = "") =>
           PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         #endregion
